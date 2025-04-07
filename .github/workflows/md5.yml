@@ -29,6 +29,6 @@ jobs:
     - name: Build gulp
       run: gulp
 
-    - name: name: Echo hash
+    - name: Echo hash
       run: echo ${{ steps.get-hash.outputs.hash }}
         
