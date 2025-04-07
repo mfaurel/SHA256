@@ -30,11 +30,11 @@ jobs:
       run: echo ${{ steps.get-hash.outputs.hash }}
       
     - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: aze
-          write-mode: overwrite
-          contents: ${{ steps.get-hash.outputs.hash }} 
+      uses: DamianReeves/write-file-action@master
+      with:
+        path: aze
+        write-mode: overwrite
+        contents: ${{ steps.get-hash.outputs.hash }} 
 
     - name : Add and Commit
       uses: EndBug/add-and-commit@v9
