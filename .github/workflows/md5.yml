@@ -41,7 +41,7 @@ jobs:
       with:
         add: 'aze'
         default_author: github_actions
-        message: Show GitHub Actions logo
+        message: Modifying md5
         committer_name: GitHub Actions
         committer_email: actions@github.com
 
