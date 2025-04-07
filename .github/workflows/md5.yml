@@ -1,14 +1,34 @@
-- uses: actions/setup-node@v3
+name: shasum hash
 
-- uses: seepine/hash-files@v1
-  id: get-hash
-  with: 
-    patterns: '**/README.md'
+on:
+  push:
+    branches: [main]
 
-    # Multiple patterns should be seperated by `\n`
- #   patterns: |
- #     **/package-lock.json
- #     **/yarn.lock
- 
- - name: Echo hash
-  run: echo ${{ steps.get-hash.outputs.hash }}
+permissions:
+  pull-requests: write
+  contents: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Build
+      uses: seepine/hash-files@v1
+      id: get-hash
+      with: 
+        patterns: '**/README.md'
+      
+    - name: Build gulp
+      run: gulp
+
+    - name: name: Echo hash
+      run: echo ${{ steps.get-hash.outputs.hash }}
+        
