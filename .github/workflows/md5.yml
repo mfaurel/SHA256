@@ -25,10 +25,7 @@ jobs:
       id: get-hash
       with: 
         patterns: '**/README.md'
-      
-    - name: Build gulp
-      run: gulp
-
+        
     - name: Echo hash
       run: echo ${{ steps.get-hash.outputs.hash }}
         
