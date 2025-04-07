@@ -1,4 +1,4 @@
-# md5sum
+# SHA256
 Test
 
 new
